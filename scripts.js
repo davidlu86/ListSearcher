@@ -240,6 +240,16 @@ document.getElementById('global-copy-all-btn').addEventListener('click', copyAll
 // Copy Selected Entries button
 document.getElementById('copy-selected-btn').addEventListener('click', copySelectedEntries);
 
+// Reset All button
+document.getElementById('reset-all-btn').addEventListener('click', function() {
+    if (confirm("Are you sure you want to reset all data? This action cannot be undone.")) {
+        localStorage.removeItem('lists');
+        lists = [];
+        displayLists();
+        showMessage('All data has been reset', 'success');
+    }
+});
+
 // Function to show messages
 function showMessage(message, type = 'success') {
     const messageDiv = document.createElement('div');
